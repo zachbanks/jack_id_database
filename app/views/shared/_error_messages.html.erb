@@ -1,0 +1,11 @@
+<% if object.errors.any? %>
+	<div id="error_explanation">
+		<h1><%= pluralize(object.errors.count, 'Error') %> prevented this form from being submitted.</h1>
+		<p>There were problems with the following fields:</p>
+		<ul>
+			<% object.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
