@@ -11,16 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519014358) do
+ActiveRecord::Schema.define(:version => 20120519212346) do
 
   create_table "buildings", :force => true do |t|
     t.string   "name"
     t.string   "short_name"
-    t.integer  "location_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "buildings", ["location_id"], :name => "index_buildings_on_location_id"
 
 end
