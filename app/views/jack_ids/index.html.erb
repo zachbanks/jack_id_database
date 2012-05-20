@@ -1,0 +1,7 @@
+<h1>Jack IDs</h1>
+<% @jack_ids.each do |jack_id| %>
+	<p><%= jack_id.label %></p>
+	<div class="admin_edit_links">
+		<%= render :partial => 'shared/admin_edit_links', :locals => { :object => jack_id } %>
+	</div>
+<% end %>
