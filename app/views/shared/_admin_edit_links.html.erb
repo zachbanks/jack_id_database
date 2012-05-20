@@ -1,0 +1,5 @@
+<!-- Partial can be used as long as the passed in responds to the to_s method. -->
+<% class_name = object.class.to_s.underscore %>
+<% object_edit_path = "edit_#{class_name}_path(#{object.id})" %>
+<%= link_to 'Edit', instance_eval(object_edit_path) %> |  
+<%= link_to 'Delete', object, :method => :delete, :confirm => "Are you sure?", :title => "Delete #{object}" %>
