@@ -1,0 +1,16 @@
+<%= render :partial => 'shared/error_messages', :locals => { :object => @location } %>
+<%= form_for @location do |f| %>
+	<div class="field">
+		<%= f.label :room %>
+		<%= f.text_field :room %>
+	</div>
+	
+	<div class="field">
+		<%= f.label :notes %>
+		<%= f.text_area :notes %>
+	</div>
+	
+	<div class="field">
+		<%= f.submit (@location.new_record?) ? "Add Location" : "Update Location" %>
+	</div>
+<% end %>

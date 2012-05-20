@@ -2,6 +2,7 @@ JackIdDatabase::Application.routes.draw do
   root :to => "buildings#index"
   
   resources :buildings
+  resources :locations
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,7 @@
+<h1>Locations</h1>
+<% @locations.each do |location| %>
+	<p><%= location.building.name %> - <%= location.room %></p>
+	<div class="admin_edit_links">
+		<%= render :partial => 'shared/admin_edit_links', :locals => { :object => location } %>
+	</div>
+<% end %>
