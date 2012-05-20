@@ -15,6 +15,10 @@ class Building < ActiveRecord::Base
   validates :short_name, :uniqueness => { :case_sensitive => false } # Case does not matter.
   validates :name, :uniqueness => { :case_sensitive => false } # Case does not matter.
   
+  def to_s
+    "Building - #{name}"
+  end
+  
   private 
   
   # Format attributes before saving.

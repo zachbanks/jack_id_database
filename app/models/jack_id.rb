@@ -3,4 +3,9 @@ class JackId < ActiveRecord::Base
   
   # Validate presence of attributes.
   validates :label, :presence => true
+  
+  def to_s
+    "Jack ID - #{label}"
+  end
+  
 end
