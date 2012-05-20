@@ -24,6 +24,8 @@ class BuildingsController < ApplicationController
     @building = Building.find(params[:id])
     if @building.update_attributes(params[:building])
       redirect_to buildings_path, :notice => "#{@building.name} was successfully updated."
+    else
+      render :edit
     end
   end
   

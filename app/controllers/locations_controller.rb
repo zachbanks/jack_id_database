@@ -27,7 +27,7 @@ class LocationsController < ApplicationController
     if @location.update_attributes(params[:location])
       redirect_to locations_path, :notice => "#@location was successfully updated."
     else
-      render :new
+      render :edit
     end
   end
   
