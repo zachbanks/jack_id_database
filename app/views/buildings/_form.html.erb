@@ -1,0 +1,14 @@
+<%= render :partial => 'shared/error_messages', :locals => {:object => @building } %>
+<%= form_for @building do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :short_name, "Short Name" %>
+		<%= f.text_field :short_name %>
+	</div>
+	<div class="field">
+		<%= f.submit (@building.new_record?) ? "Add Building" : "Update Building" %>
+	</div>
+<% end %>

@@ -1,0 +1,7 @@
+<h1>CAS Buildings</h1>
+<% @buildings.each do |building| %>
+	<p><%= building.name %> - <%= building.short_name %></p>
+	<div class="admin_edit_links">
+		<%= render :partial => 'shared/admin_edit_links', :locals => { :object => building } %>
+	</div>
+<% end %>
