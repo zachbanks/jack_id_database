@@ -31,7 +31,7 @@ class BuildingsController < ApplicationController
   
   def destroy
     @building = Building.find(params[:id])
-    msg = @building.to_s
+    msg = "#{@building.to_s} was succesfully deleted."
     @building.destroy
     redirect_to buildings_path, :flash => { :success => msg }
   end
