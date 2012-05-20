@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(params[:location])
     # TODO: Fix and remove.
-    @location.building = Building.find_by_name('Bowman')
+    #@location.building = Building.find_by_name('Bowman')
     if @location.save
       redirect_to locations_path, :notice => "#@location was successfully added."
     else

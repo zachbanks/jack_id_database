@@ -1,6 +1,11 @@
 <%= render :partial => 'shared/error_messages', :locals => { :object => @location } %>
 <%= form_for @location do |f| %>
 	<div class="field">
+		<%= f.label :building %>
+		<%= collection_select(:location, :building_id, Building.find(:all), :id, :name, :prompt => "Select a Building") %>
+	</div>
+
+	<div class="field">
 		<%= f.label :room %>
 		<%= f.text_field :room %>
 	</div>

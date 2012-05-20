@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :building, :room, :jack_id, :notes
+  attr_accessible :room, :jack_id, :notes, :building_id
   
   belongs_to :building
   has_many :jack_ids
