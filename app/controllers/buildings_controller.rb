@@ -10,7 +10,7 @@ class BuildingsController < ApplicationController
   def create
     @building = Building.new(params[:building])
     if @building.save
-      redirect_to buildings_path, :notice => "#@building.name was successfully added."
+      redirect_to buildings_path, :notice => "#{@building.name} was successfully added."
     else
       render :new
     end
@@ -23,7 +23,7 @@ class BuildingsController < ApplicationController
   def update
     @building = Building.find(params[:id])
     if @building.update_attributes(params[:building])
-      redirect_to buildings_path, :notice => "#@building.name was successfully updated."
+      redirect_to buildings_path, :notice => "#{@building.name} was successfully updated."
     end
   end
   
