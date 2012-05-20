@@ -13,3 +13,16 @@ class Location < ActiveRecord::Base
     "#{building.name} - #{room}"
   end
 end
+
+# == Schema Information
+#
+# Table name: locations
+#
+#  id          :integer         not null, primary key
+#  building_id :integer
+#  room        :string(255)
+#  notes       :text
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+

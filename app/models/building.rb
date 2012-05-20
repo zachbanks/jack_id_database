@@ -27,3 +27,15 @@ class Building < ActiveRecord::Base
     self.short_name = short_name.downcase
   end
 end
+
+# == Schema Information
+#
+# Table name: buildings
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  short_name :string(255)
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
