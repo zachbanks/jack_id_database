@@ -1,9 +1,14 @@
 JackIdDatabase::Application.routes.draw do
   root :to => "buildings#index"
   
+  get 'login', :to => "sessions#new", :as => 'login'
+  get 'logout', :to => "sessions#destroy", :as => 'logout'
+  
   resources :buildings
   resources :locations
   resources :jack_ids
+  resources :admin
+  resources :sessions
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,6 @@
+<% if current_admin %>
+	Logged in as <%= current_admin.username %>
+	<%= link_to "Logout", logout_path %>
+<% else %>
+	<%= link_to "Login", login_path %>
+<% end %>

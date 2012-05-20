@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+  before_filter :authorize, :except => :index
+  
   def index
     @locations = Location.all
   end

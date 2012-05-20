@@ -1,4 +1,6 @@
 class BuildingsController < ApplicationController
+  before_filter :authorize, :except => :index
+
   def index
     @buildings = Building.all
   end
