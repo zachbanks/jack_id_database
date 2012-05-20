@@ -23,7 +23,7 @@ class Building < ActiveRecord::Base
   
   # Format attributes before saving.
   def format_attributes
-    self.name = name.titleize
+    # self.name = name.capitalize # Find better option.
     self.short_name = short_name.downcase
   end
 end
