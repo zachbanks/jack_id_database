@@ -22,7 +22,7 @@ module ControllerAuthentication
   end
 
   def current_admin
-    @current_admin ||= Admin.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+    @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
   end
 
   def logged_in?
@@ -32,7 +32,7 @@ module ControllerAuthentication
   def login_required
     unless logged_in?
       store_target_location
-      redirect_to login_url, :alert => "You must first log in or sign up before accessing this page."
+      redirect_to login_url, :alert => "You must first log in before accessing this page."
     end
   end
 

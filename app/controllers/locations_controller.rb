@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :authorize, :except => :index
+  before_filter :login_required, :except => :index
   
   def index
     @locations = Location.all
