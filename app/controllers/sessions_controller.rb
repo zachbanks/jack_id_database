@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     admin = Admin.find_by_username(params[:username])
     if admin && admin.authenticate(params[:password])
       session[:admin_id] = admin.id
-      redirect_to root_url, :notice => "Logged in as #{admin.username}!"
+      redirect_to_target_or_default root_url, :notice => "Logged in as #{admin.username}!"
     else
       flash.now.alert = "Username or password is invalid."
       render :new
