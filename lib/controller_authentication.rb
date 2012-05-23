@@ -32,7 +32,13 @@ module ControllerAuthentication
   def login_required
     unless logged_in?
       store_target_location
-      redirect_to login_url, :alert => "You must first log in before accessing this page."
+      # If the request url is the root url, it probably means they are coming to the site 
+      # for the first time, so don't show a flash message.
+      if request.url == root_url
+        redirect_to login_url
+      else
+        redirect_to login_url, :alert => "You must first log in before accessing this page."
+    end
     end
   end
 

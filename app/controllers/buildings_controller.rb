@@ -1,6 +1,5 @@
 class BuildingsController < ApplicationController
-  before_filter :login_required, :except => :index
-
+  before_filter :login_required
   def index
     @buildings = Building.all
   end
