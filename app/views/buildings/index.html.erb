@@ -1,9 +1,19 @@
 <h1>CAS Buildings</h1>
-<% @buildings.each do |building| %>
-	<p><%= building.name %> - <%= building.short_name %></p>
-	<% if logged_in? %>
-		<div class="admin_edit_links update_link_only">
-			<%= link_to "Edit", edit_building_path(building) %>
-		</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Building Name</th>
+      <th>Building Short Name</th>
+			<th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @buildings.each do |building| %>
+    <tr>
+			<td><%= building.name %></td>
+			<td><%= building.short_name %></td>
+			<td><a href="<%= edit_building_path(building) %>"><i class="icon-edit"></i> Edit</a></td>
+    </tr>
 	<% end %>
-<% end %>
+  </tbody>
+</table>
