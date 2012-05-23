@@ -17,6 +17,6 @@
 	
 	<div class="field">
 		<% new_record = @location.new_record? %>
-		<%= f.submit new_record ? "Add Location" : "Update Location", :class => submit_button_class(@location) %>
+		<%= f.submit submit_button_text(@location, "Building"), :class => submit_button_class(@location) %>
 	</div>
 <% end %>
