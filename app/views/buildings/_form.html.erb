@@ -1,5 +1,15 @@
 <%= simple_form_for @building, :html => { :class => 'form-horizontal' } do |f| %>
 	<%= f.input :name %>
 	<%= f.input :short_name %>
-		<%= f.submit submit_button_text(@building, "Building"), :class => submit_button_css(@building) %>
+	<%= f.submit submit_button_text(@building, "Building"), :class => 'btn' %>
+	
+	<% unless @building.new_record? %>
+		<!-- Display delete button. -->
+		
+		<!-- TODO: Get this functionality working with the controller! -->
+		<%= f.submit "Delete Building", :name => "delete_building", 
+																		:method => :delete,
+																		:confirm => "Are you sure you want to delete #{@building.name}? Deleting #{@building.name} will delete all locations (rooms) associated with #{@building.name}.", 
+																		:class => 'btn btn-danger'%>
+	<% end %>
 <% end %>

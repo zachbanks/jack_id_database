@@ -2,8 +2,8 @@
 <% @buildings.each do |building| %>
 	<p><%= building.name %> - <%= building.short_name %></p>
 	<% if logged_in? %>
-		<div class="admin_edit_links">
-			<%= render :partial => 'shared/admin_edit_links', :locals => { :object => building } %>
+		<div class="admin_edit_links update_link_only">
+			<%= link_to "Edit", edit_building_path(building) %>
 		</div>
 	<% end %>
 <% end %>

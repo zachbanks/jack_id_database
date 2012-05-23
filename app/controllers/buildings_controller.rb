@@ -24,7 +24,10 @@ class BuildingsController < ApplicationController
   
   def update
     @building = Building.find(params[:id])
-    if @building.update_attributes(params[:building])
+    if params['delete_building']
+        # Delete Building button was clicked.
+      destroy # Calls this controllers destroy method to delete the record.
+    elsif @building.update_attributes(params[:building])
       redirect_to buildings_path, :notice => "#{@building.name} was successfully updated."
     else
       render :edit
@@ -35,6 +38,6 @@ class BuildingsController < ApplicationController
     @building = Building.find(params[:id])
     msg = "#{@building.to_s} was succesfully deleted."
     @building.destroy
-    redirect_to buildings_path, :flash => { :success => msg }
+    redirect_to buildings_path, :alert => msg 
   end
 end

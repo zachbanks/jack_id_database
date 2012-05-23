@@ -70,9 +70,13 @@
 		</div><!--/content-->
 
 		<footer>
-
+			
 		</footer>
 
+		<!-- Rails debugging info. -->
+		<% if Rails.env.development? %>
+			<%= debug(params)  %>
+		<% end %>
 	</div> <!-- /container -->
 
 	<!-- Le javascript

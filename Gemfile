@@ -24,8 +24,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
-# Annotates models with SQL table structure. In console, run command annotate.
-gem 'annotate', '2.4.1.beta1', :group => :development # Use beta to get annotate to work with Rails 3.2.
+
+group :development do 
+  # Annotates models with SQL table structure. In console, run command annotate.
+  gem 'annotate', '2.4.1.beta1' # Use beta to get annotate to work with Rails 3.2. 
+end
+
 
 # Gives you a form builder for easily building forms. Integrates well with Twitter Bootstrap.
 gem 'simple_form'

@@ -3,7 +3,7 @@ class Building < ActiveRecord::Base
   
   attr_accessible :name, :short_name, :locations
   
-  has_many :locations
+  has_many :locations, :dependent => :destroy # Deleted all locations when deleting a building.
   
   # Validates presence of attributes.
   validates :name, :short_name, :presence => true
