@@ -1,7 +1,8 @@
 class BuildingsController < ApplicationController
   before_filter :login_required
+  
   def index
-    @buildings = Building.find(:all, :order => 'name') # Sort by name column.
+    @buildings = Building.all 
   end
   
   def new

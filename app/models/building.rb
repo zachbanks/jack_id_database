@@ -1,6 +1,9 @@
 class Building < ActiveRecord::Base
   before_save :format_attributes
   
+  # Sort by name column.
+  default_scope :order => 'name' 
+  
   attr_accessible :name, :short_name, :locations
   
   has_many :locations, :dependent => :destroy # Deleted all locations when deleting a building.
