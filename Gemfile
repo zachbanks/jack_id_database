@@ -27,6 +27,8 @@ gem 'jquery-rails'
 # Annotates models with SQL table structure. In console, run command annotate.
 gem 'annotate', '2.4.1.beta1', :group => :development # Use beta to get annotate to work with Rails 3.2.
 
+# Gives you a form builder for easily building forms. Integrates well with Twitter Bootstrap.
+gem 'simple_form'
 
 
 # To use ActiveModel has_secure_password

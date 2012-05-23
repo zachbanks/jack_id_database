@@ -20,7 +20,7 @@ module ApplicationHelper
   
   # Assigns CSS button classes for a submit button.
   # If object is a new record, give the submit button a success button, otherwise give it a warning button.
-  def submit_button_class(model)
+  def submit_button_css(model)
     new_record = model.new_record?
     css_class = new_record ? 'success' : 'warning' # These are Twitter Bootstrap button classes.
     "btn btn-#{css_class}"

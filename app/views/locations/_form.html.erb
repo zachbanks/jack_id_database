@@ -1,22 +1,6 @@
-<%= render :partial => 'shared/error_messages', :locals => { :object => @location } %>
-<%= form_for @location do |f| %>
-	<div class="field">
-		<%= f.label :building %>
-		<%= collection_select(:location, :building_id, Building.find(:all), :id, :name, :prompt => "Select a Building") %>
-	</div>
-
-	<div class="field">
-		<%= f.label :room %>
-		<%= f.text_field :room %>
-	</div>
-	
-	<div class="field">
-		<%= f.label :notes %>
-		<%= f.text_area :notes %>
-	</div>
-	
-	<div class="field">
-		<% new_record = @location.new_record? %>
-		<%= f.submit submit_button_text(@location, "Building"), :class => submit_button_class(@location) %>
-	</div>
+<%= simple_form_for @location, :html => { :class => 'form-vertical' } do |f| %>
+		<%= f.association :building, :prompt => "Select a Building" %>
+		<%= f.input :room %>
+		<%= f.input :notes %>
+		<%= f.submit submit_button_text(@location, "Location"), :class => submit_button_css(@location) %>
 <% end %>
