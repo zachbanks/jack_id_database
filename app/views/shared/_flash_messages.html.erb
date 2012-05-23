@@ -1,0 +1,9 @@
+<div>
+	<% flash.each do |key, value| %>
+		<!-- Classes fade and in are need the alert plugin for Twitter Bootstrap and is required in application.js file. -->
+		<div class="<%= flash_class(key) %> fade in">
+			<a href="#" data-dismiss="alert" class="close">x</a>
+			<%= value %>
+		</div>
+	<% end %>
+</div>
