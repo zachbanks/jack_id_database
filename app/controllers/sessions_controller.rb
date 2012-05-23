@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  # This method will make this controller use https. This only works in test and production environments.
+  force_ssl
+  
   def new
   end
   
