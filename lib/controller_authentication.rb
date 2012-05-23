@@ -22,7 +22,7 @@ module ControllerAuthentication
   end
 
   def current_admin
-    @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
+    @current_admin ||= Admin.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
   end
 
   def logged_in?
