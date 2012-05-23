@@ -1,6 +1,9 @@
 class Location < ActiveRecord::Base
   attr_accessible :room, :jack_id, :notes, :building_id
   
+  # Sort by building and then sort by room number.
+  default_scope :order => 'building_id, room' # TODO: Fix this ordering!
+  
   belongs_to :building
   has_many :jack_ids
   

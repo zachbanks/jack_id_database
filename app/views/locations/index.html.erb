@@ -1,9 +1,19 @@
-<h1>Locations</h1>
-<% @locations.each do |location| %>
-	<p><%= location.building.name %> - <%= location.room %></p>
-	<% if logged_in? %>
-		<div class="admin_edit_links">
-			<%= render :partial => 'shared/admin_edit_links', :locals => { :object => location } %>
-		</div>
+<h1>Rooms</h1>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Room Number</th>
+			<th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @locations.each do |location| %>
+    <tr>
+			<td><%= location.building.name %></td>
+			<td><%= location.room %></td>
+			<td><%= render :partial => 'shared/admin_edit_links', :locals => { :object => location } %></td>
+    </tr>
 	<% end %>
-<% end %>
+  </tbody>
+</table>
