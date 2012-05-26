@@ -64,5 +64,18 @@ module JackIdDatabase
     
     # Autoload lib folder.
     config.autoload_paths += %W(#{config.root}/lib)
+    
+    # Tell Rails what RSpec files we want when we use generators.
+    # It's a good idea to include routing specs in bigger applications.
+    # If you have a lot of helper methods, then you should test them as well.
+    config.generators do |g|
+      g.test_framework :rspec, :fixtures => true,
+                               :view_specs => false,
+                               :helper_specs => false,
+                               :routing_specs => false,
+                               :controller_specs => true,
+                               :request_specs => true
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+    end
   end
 end
