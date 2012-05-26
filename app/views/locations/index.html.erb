@@ -4,7 +4,7 @@
     <tr>
       <th>Building</th>
       <th>Room Number</th>
-			<th>Admin</th>
+			<th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -12,7 +12,7 @@
     <tr>
 			<td><%= location.building.name %></td>
 			<td><%= location.room %></td>
-			<td><%= render :partial => 'shared/admin_edit_links', :locals => { :object => location } %></td>
+			<td><%= link_to 'Details', location_path(location) %> | <%= link_to 'Edit', edit_location_path(location) %></td>
     </tr>
 	<% end %>
   </tbody>

@@ -1,0 +1,6 @@
+<h1><%= @location %></h1>
+
+<p>Building: <%= @location.building.name %></p>
+<p>Room Number: <%= @location.room %></p>
+<p>Notes: <%= @location.notes %></p>
+<p>Last Modified: <%= relative_date_and_time_format_for @location.updated_at %></p>

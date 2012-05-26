@@ -17,4 +17,13 @@ module ApplicationHelper
     new_record = model.new_record?
     new_record ? "Add #{resource_name}" : "Update #{resource_name}"
   end
+  
+  # Formats any datetime into a string in the format: 1/6/2012 at 1:35 PM (3 months ago).
+  # @param [DateTime] datetime The datetime to be formatted.
+  # @return [String] A formatted string in the format: 1/6/2012 at 12:56 AM (4 days ago).
+  def relative_date_and_time_format_for(datetime)
+    result = ''
+    result <<  datetime.strftime('%m/%e/%Y at %l:%M %p') # 1/16/2012 at 1:35 PM
+    result << " (#{time_ago_in_words(datetime)})"
+  end
 end
