@@ -7,9 +7,6 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password.
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-# ===============
-# = Custom Gems =
-# ===============
 
 # Gives you a form builder for easily building forms. Integrates well with Twitter Bootstrap.
 # Documentation: https://github.com/plataformatec/simple_form
@@ -33,9 +30,8 @@ group :assets do
   gem "twitter-bootstrap-rails"
 end
 
-
 # ====================
-# = Development Gems =
+# = Development Only =
 # ====================
 
 group :development do 
@@ -48,3 +44,35 @@ group :development do
   gem 'rails-erd'
 end
 
+# =========================
+# = Development & Testing =
+# =========================
+
+group :development, :test do
+  # RSpec testing framework.
+  gem 'rspec-rails'
+  
+  # To use Factories instead of Fixtures in tests.
+  gem 'factory_girl_rails'
+  
+  # To autorun tests.
+  gem 'guard-rspec'
+end
+
+# ================
+# = Testing Only =
+# ================
+
+group :test do
+  # Generates fake data for factories.
+  gem 'faker'
+  
+  # To test UI in code.
+  gem 'capybara'
+  
+  # Helps run each test with a clean database.
+  gem 'database_cleaner'
+  
+  # Opens your browser on demand to show what your application is rendering.
+  gem 'launchy'
+end
