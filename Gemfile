@@ -30,6 +30,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   
   # CSS & JQuery bootstrap package. Main source of styling in this project.
+  # Documentation: http://twitter.github.com/bootstrap/
   gem "twitter-bootstrap-rails"
 end
 
