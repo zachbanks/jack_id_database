@@ -12,6 +12,7 @@ class Location < ActiveRecord::Base
   # If the building is the same, make sure that the room is unique.
   validates :room, :uniqueness => { :scope => :building_id, :message => " already exists" }
   
+  # @return [String] Returns a string representation of a Location instance in the format: Bowman - 320-A.
   def to_s
     "#{building.name} - #{room}"
   end

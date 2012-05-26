@@ -1,3 +1,5 @@
+# The Building model represents an academic school building at Kent State University. 
+# @author Zach Banks - {mailto: zbanks1@kent.edu}
 class Building < ActiveRecord::Base
   before_save :format_attributes
   

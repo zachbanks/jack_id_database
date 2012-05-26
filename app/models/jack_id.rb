@@ -5,6 +5,7 @@ class JackId < ActiveRecord::Base
   # Validate presence of attributes.
   validates :label, :presence => true
   
+  # @return [String] The string representation of a JackID instance in the format: JackID - Bow-02-03-091.
   def to_s
     "Jack ID - #{label}"
   end
