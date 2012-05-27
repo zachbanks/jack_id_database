@@ -29,4 +29,17 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+  
+  # So you don't have to call FactoryGirl.method every time.
+  RSpec.configure do |config|
+    config.include FactoryGirl::Syntax::Methods
+  end
+end
+
+# Generates a random string from lower case letters.
+# @param length [Fixnum] Desired length of the random string.
+# @returns [String] Random string of lowercase letters.
+def generate_random_string(length)
+  charset = ('a'..'z').to_a
+  (0...length).map{ charset[rand(charset.size)] }.join
 end
