@@ -76,4 +76,7 @@ group :test do
   
   # Opens your browser on demand to show what your application is rendering.
   gem 'launchy'
+  
+  # Adds addtional RSpec matchers that you can use in your tests.
+  gem 'shoulda-matchers'
 end

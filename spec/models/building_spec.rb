@@ -35,9 +35,7 @@ describe Building do
   end
   
   describe 'associations' do
-    it "has many locations" do
-      build(:building_with_locations).locations.each { |location| location.should_be_an_instance_of(Location) }
-    end
+    it { should have_many(:locations) }
   
     it 'destroys all locations when deleted' do
       building = create(:building_with_locations)

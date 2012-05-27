@@ -24,13 +24,8 @@ describe Location do
   end
   
   describe 'associations' do
-    it 'should have many jack ids' do
-      build(:location_with_jack_ids).jack_ids.each { |jack_id| jack_id.should_be_an_instance_of(JackId) }
-    end
-    
-    it 'should belong to a building' do
-      build(:location).should respond_to(:building)
-    end
+    it { should have_many(:jack_ids) }
+    it { should belong_to(:building) }
   end
   
   it 'should be sorted by building and then by room' do
