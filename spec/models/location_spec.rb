@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Location do
   it 'should have valid factory' do
-    create(:location)
+    create(:location).should be_valid
   end
   
   describe 'validations' do
@@ -42,3 +42,16 @@ describe Location do
     create(:location, building: create(:building, name: 'Bowman'), room: '302').to_s.should == 'Bowman - 302'
   end
 end
+
+# == Schema Information
+#
+# Table name: locations
+#
+#  id          :integer         not null, primary key
+#  building_id :integer
+#  room        :string(255)
+#  notes       :text
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#
+
