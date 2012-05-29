@@ -2,5 +2,12 @@
 
 <p>Building: <%= @location.building.name %></p>
 <p>Room Number: <%= @location.room %></p>
+<div>
+	<p>Jack IDS</p>
+	<% @location.jack_ids.each do |jack_id| %>
+		<p><%= jack_id.label %></p>
+		<p><%= jack_id.connections %></p>
+	<% end %>
+</div>
 <p>Notes: <%= @location.notes %></p>
 <p>Last Modified: <%= relative_date_and_time_format_for @location.updated_at %></p>

@@ -2,6 +2,12 @@
 		<%= f.error_notification %>
 		<%= f.association :building, :prompt => "Select a Building" %>
 		<%= f.input :room %>
+		
+		<%= f.fields_for(:jack_ids) do |builder| %>
+				<%= render 'jack_id_fields', :f => builder %>
+		<% end %>
+		<%= link_to_add_fields "Add Jack ID", f, :jack_ids %>
+		
 		<%= f.input :notes %>
 		<%= f.submit submit_button_text(@location, "Location"), :class => 'btn' %>
 <% end %>

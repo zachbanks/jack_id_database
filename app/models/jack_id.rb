@@ -1,5 +1,5 @@
 class JackId < ActiveRecord::Base
-  attr_accessible :location_id, :label, :connections
+  attr_accessible :label, :connections, :location_id
   belongs_to :location
   
   # Validate presence of attributes.

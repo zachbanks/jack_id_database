@@ -1,11 +1,12 @@
 class Location < ActiveRecord::Base
-  attr_accessible :room, :jack_id, :notes, :building_id
+  attr_accessible :room, :jack_ids, :notes, :building_id, :jack_ids_attributes
   
   # Sort by building and then sort by room number.
   default_scope :order => 'building_id, room' # TODO: Fix this ordering!
   
   belongs_to :building
   has_many :jack_ids
+  accepts_nested_attributes_for :jack_ids, :allow_destroy => true
   
   validates :building, :room, :presence => true
   
