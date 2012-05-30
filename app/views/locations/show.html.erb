@@ -11,3 +11,4 @@
 </div>
 <p>Notes: <%= @location.notes %></p>
 <p>Last Modified: <%= relative_date_and_time_format_for @location.updated_at %></p>
+<%= button_to "Edit", edit_location_path(@location), :method => :get, :class => 'btn' %>
