@@ -47,6 +47,9 @@ group :development do
   # Run by calling: 'rake erd' in command line.
   # Documentation: http://rails-erd.rubyforge.org/
   gem 'rails-erd'
+  
+  # Replaces rails console with pry.
+  gem 'pry-rails'
 end
 
 # =========================
