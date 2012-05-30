@@ -37,3 +37,13 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 end
+
+
+# Generates a random string from lower case letters.
+# @param length [Fixnum] Desired length of the random string.
+# @param character_set [Range or Array] Range or array of desired characters to be included in random strings.
+# @returns [String] Random string of lowercase letters.
+def generate_random_string(length, character_set)
+  charset = character_set.to_a
+  (0...length).map{ charset[rand(charset.size)] }.join
+end
