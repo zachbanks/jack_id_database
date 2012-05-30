@@ -17,6 +17,10 @@ gem 'simple_form'
 # Documentation: http://rubydoc.info/docs/yard/frames
 gem 'yard'
 
+# For pagination.
+# Documentation: https://github.com/mislav/will_paginate
+gem 'will_paginate', '~> 3.0'
+
 # ===============
 # = Assets Gems =
 # ===============
