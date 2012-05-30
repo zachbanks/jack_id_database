@@ -2,7 +2,7 @@ class BuildingsController < ApplicationController
   before_filter :login_required
   
   def index
-    @buildings = Building.all 
+    @buildings = Building.paginate(:page => params[:page], :per_page => 10) 
   end
   
   def new
