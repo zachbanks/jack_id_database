@@ -10,4 +10,12 @@
 		
 		<%= f.input :notes %>
 		<%= f.submit submit_button_text(@location, "Location"), :class => 'btn' %>
+		
+		<% unless @location.new_record? %>
+			<!-- Display delete button. -->
+			<%= f.submit "Delete Location", :name => "delete_location", 
+																			:method => :delete,
+																			:confirm => "Are you sure you want to delete #{@location}? Deleting #{@location} will delete all Jack IDs and notes associated with #{@location}.", 
+																			:class => 'btn btn-danger'%>
+		<% end %>
 <% end %>

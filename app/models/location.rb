@@ -5,7 +5,7 @@ class Location < ActiveRecord::Base
   default_scope :joins => :building, :order => 'buildings.name, room' # TODO: Further refine. Needs to sort 123-2 before 123-12
   
   belongs_to :building
-  has_many :jack_ids
+  has_many :jack_ids, :dependent => :destroy
   accepts_nested_attributes_for :jack_ids, :allow_destroy => true
   
   validates :building, :room, :presence => true

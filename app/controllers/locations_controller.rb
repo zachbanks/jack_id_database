@@ -28,7 +28,10 @@ class LocationsController < ApplicationController
   
   def update
     @location = Location.find(params[:id])
-    if @location.update_attributes(params[:location])
+    if params['delete_location']
+      # Delete Location button was clicked.
+      destroy # Calls this controllers destroy method to delete the record.
+    elsif @location.update_attributes(params[:location])
       redirect_to locations_path, :notice => "#@location was successfully updated."
     else
       render :edit
