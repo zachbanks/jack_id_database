@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120523112824) do
+ActiveRecord::Schema.define(:version => 20120531043045) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
@@ -42,8 +42,9 @@ ActiveRecord::Schema.define(:version => 20120523112824) do
     t.integer  "building_id"
     t.string   "room"
     t.text     "notes"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.datetime "last_modified_at"
   end
 
   add_index "locations", ["building_id"], :name => "index_locations_on_building_id"

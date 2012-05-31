@@ -65,6 +65,10 @@ module JackIdDatabase
     # Autoload lib folder.
     config.autoload_paths += %W(#{config.root}/lib)
     
+    # Tells Rails to use correct time zones.
+    config.time_zone = 'Eastern Time (US & Canada)'
+    config.active_record.default_timezone = 'Eastern Time (US & Canada)'
+    
     # Tell Rails what RSpec files we want when we use generators.
     # It's a good idea to include routing specs in bigger applications.
     # If you have a lot of helper methods, then you should test them as well.
