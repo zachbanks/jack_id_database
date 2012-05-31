@@ -1,5 +1,5 @@
 # Create new admin account.
-Admin.create!(username: 'admin', password: 'password', password_confirmation: 'password')
+Admin.create!(name: 'Zach Banks', email: 'zbanks1@kent.edu', password: 'password')
 
 # Create buildings.
 names = ['Bowman', 'Merril', 'McGilvery', 'Oscar Ritchie', 'Lowery']

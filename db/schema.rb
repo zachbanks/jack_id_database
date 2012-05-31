@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531043045) do
+ActiveRecord::Schema.define(:version => 20120531053953) do
 
   create_table "admins", :force => true do |t|
-    t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "auth_token"
+    t.string   "email"
+    t.string   "name"
   end
 
   create_table "buildings", :force => true do |t|
@@ -48,5 +49,16 @@ ActiveRecord::Schema.define(:version => 20120531043045) do
   end
 
   add_index "locations", ["building_id"], :name => "index_locations_on_building_id"
+
+  create_table "rooms", :force => true do |t|
+    t.integer  "building_id"
+    t.string   "room_number"
+    t.text     "notes"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.datetime "last_modified_at"
+  end
+
+  add_index "rooms", ["building_id"], :name => "index_locations_on_building_id"
 
 end

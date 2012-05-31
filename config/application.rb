@@ -67,8 +67,11 @@ module JackIdDatabase
     
     # Tells Rails to use correct time zones.
     config.time_zone = 'Eastern Time (US & Canada)'
-    config.active_record.default_timezone = 'Eastern Time (US & Canada)'
+    config.active_record.default_timezone = :local
     
+    # Add custom validators to load path.
+    config.autoload_paths += Dir["#{config.root}/lib/validators/**/"]
+  
     # Tell Rails what RSpec files we want when we use generators.
     # It's a good idea to include routing specs in bigger applications.
     # If you have a lot of helper methods, then you should test them as well.

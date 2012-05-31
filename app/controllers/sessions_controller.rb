@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
   
   def create
-    admin = Admin.find_by_username(params[:username])
+    admin = Admin.find_by_email(params[:email])
     if admin && admin.authenticate(params[:password])
       # If remember me checkbox is set ...
       if params[:remember_me]
@@ -17,9 +17,9 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = admin.auth_token
       end
      
-      redirect_to_target_or_default root_url, :notice => "Logged in as #{admin.username}!"
+      redirect_to_target_or_default root_url, :notice => "Logged in as #{admin}!"
     else
-      flash.now.alert = "Username or password is invalid."
+      flash.now.alert = "Email or password is invalid."
       render :new
     end
   end

@@ -1,9 +1,9 @@
 class Admin < ActiveRecord::Base
   has_secure_password
-  attr_accessible :username, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation
   
-  validates :username, :password, :presence => { :on => :create }
-  validates :username, :uniqueness => true # Delete if you add an email field.
+  validates :email, :password, :name, :presence => { :on => :create }
+  validates :email, :uniqueness => true, :email_format => true
   
   before_create { generate_token(:auth_token) }
   
@@ -14,17 +14,22 @@ class Admin < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
     end while Admin.exists?(column => self[column])
   end
+  
+  def to_s
+    "#{name} - #{email}"
+  end
 end
 
 # == Schema Information
 #
 # Table name: admins
 #
-#  id              :integer         not null, primary key
-#  username        :string(255)
+#  id              :integer(4)      not null, primary key
 #  password_digest :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  auth_token      :string(255)
+#  email           :string(255)
+#  name            :string(255)
 #
 

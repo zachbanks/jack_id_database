@@ -47,11 +47,12 @@ end
 #
 # Table name: locations
 #
-#  id          :integer         not null, primary key
-#  building_id :integer
-#  room        :string(255)
-#  notes       :text
-#  created_at  :datetime        not null
-#  updated_at  :datetime        not null
+#  id               :integer(4)      not null, primary key
+#  building_id      :integer(4)
+#  room             :string(255)
+#  notes            :text
+#  created_at       :datetime        not null
+#  updated_at       :datetime        not null
+#  last_modified_at :datetime
 #
 

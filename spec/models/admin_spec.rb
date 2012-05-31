@@ -30,11 +30,12 @@ end
 #
 # Table name: admins
 #
-#  id              :integer         not null, primary key
-#  username        :string(255)
+#  id              :integer(4)      not null, primary key
 #  password_digest :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
 #  auth_token      :string(255)
+#  email           :string(255)
+#  name            :string(255)
 #
 
