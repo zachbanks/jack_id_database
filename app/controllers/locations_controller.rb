@@ -34,7 +34,7 @@ class LocationsController < ApplicationController
       # Delete Location button was clicked.
       destroy # Calls this controllers destroy method to delete the record.
     elsif @location.update_attributes(params[:location])
-      redirect_to locations_path, :notice => "#@location was successfully updated."
+      redirect_to location_path(@location), :notice => "#@location was successfully updated."
     else
       render :edit
     end
