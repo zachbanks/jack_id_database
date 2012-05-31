@@ -1,5 +1,6 @@
 module ApplicationHelper
-
+  include ActiveSupport::Inflector
+  
   # Helps format flash messages with Twitter Bootstrap CSS classes. 
   # Is rendered in application.html.erb
   # Method is used in shared/_flash_messages.html.erb.
@@ -27,21 +28,26 @@ module ApplicationHelper
     result << " (#{time_ago_in_words(datetime)})"
   end
 
-
+  # TODO: Add description of method.
   def link_to_add_fields(name, f, association)
     new_object = f.object.send(association).klass.new
     id = new_object.object_id
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render(association.to_s.singularize + "_fields", f: builder)
     end
-    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
+    link_to(name, '#', class: "add_fields", data: { id: id, fields: fields.gsub("\n", "") })
+  end
+  
+  # Returns link to floor plan for a location object, if that floor plan exists.
+  def link_to_floor_plan(location)
+    link_to 'Show Floor Plan', display_floor_plan_path(location) if has_floor_plan?(location)
   end
 
 
   # Generates a random string from lower case letters.
   # @param length [Fixnum] Desired length of the random string.
   # @param character_set [Range or Array] Range or array of desired characters to be included in random strings.
-  # @returns [String] Random string of lowercase letters.
+  # @return [String] Random string of lowercase letters.
   def generate_random_string(length, character_set)
     charset = character_set.to_a
     (0...length).map{ charset[rand(charset.size)] }.join
