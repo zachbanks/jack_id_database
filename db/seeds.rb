@@ -16,7 +16,7 @@ end
 
 # Generate fake connections label string.
 def generate_fake_connections
-  values = %w(Empty Phone Ethernet)
+  values = %w(Empty Voice Data)
   rand1 = values.sample
   rand2 = values.sample
   "A: #{rand1} B: #{rand2}"
