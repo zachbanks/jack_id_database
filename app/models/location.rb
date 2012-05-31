@@ -2,7 +2,8 @@ class Location < ActiveRecord::Base
   attr_accessible :room, :jack_ids, :notes, :building_id, :jack_ids_attributes, :building
   
   # Sort by building and then sort by room number.
-  default_scope :joins => :building, :order => 'buildings.name, room' # TODO: Further refine. Needs to sort 123-2 before 123-12
+  # :readonly => false option prevents error when updating attributes that use scope.
+  default_scope :joins => :building, :order => 'buildings.name, room', :readonly => false # TODO: Further refine. Needs to sort 123-2 before 123-12
   
   belongs_to :building
   has_many :jack_ids, :dependent => :destroy
