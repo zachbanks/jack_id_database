@@ -1,20 +1,8 @@
 <h1>Rooms</h1>
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Building</th>
-      <th>Room Number</th>
-			<th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-	<% @locations.each do |location| %>
-    <tr>
-			<td><%= location.building.name %></td>
-			<td><%= location.room %></td>
-			<td><%= link_to 'Details', location_path(location) %> | <%= link_to 'Edit', edit_location_path(location) %></td>
-    </tr>
-	<% end %>
-  </tbody>
-</table>
-<%=  paginate @locations %>
+<div id="locations">
+  <%= render 'locations' %>
+</div>
+
+<div id="paginator">
+  <%=  paginate @locations, :remote => true %>
+</div>
