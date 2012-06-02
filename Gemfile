@@ -18,8 +18,8 @@ gem 'simple_form'
 gem 'yard'
 
 # For pagination.
-# Documentation: https://github.com/mislav/will_paginate
-gem 'will_paginate', '~> 3.0'
+# Documentation: https://github.com/amatsuda/kaminari
+gem 'kaminari'
 
 # ===============
 # = Assets Gems =
