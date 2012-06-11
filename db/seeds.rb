@@ -16,10 +16,13 @@ end
 
 # Generate fake connections label string.
 def generate_fake_connections
-  values = %w(Empty Voice Data)
-  rand1 = values.sample
-  rand2 = values.sample
-  "A: #{rand1} B: #{rand2}"
+  values = ('A'..'H').to_a
+  i = rand(values.size)
+  string = ''
+  0.upto(i) do |n|
+    string << values[n]
+  end
+  string
 end
 
 # Generate an array of jack id objects.
@@ -55,6 +58,7 @@ end
 # Create locations with Jack IDs, connections, and notes.
 buildings = Building.all
 base_rooms = %w(105 120 150 204 220 223 301 320 324 325)
+room_letters = ('A'..'Z').to_a
 
 buildings.each do |building|
   base_rooms.each do |base_room|
@@ -63,7 +67,7 @@ buildings.each do |building|
     num.times do |i|
       jack_ids = generate_jack_ids_array(building)
       notes = generate_fake_notes
-      Location.create!(:building => building, :room => "#{base_room}-#{i}", :jack_ids => jack_ids, :notes => notes)
+      Location.create!(:building => building, :room => "#{base_room}-#{room_letters[i]}", :jack_ids => jack_ids, :notes => notes)
     end
   end
 end
