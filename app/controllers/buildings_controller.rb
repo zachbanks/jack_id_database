@@ -12,7 +12,7 @@ class BuildingsController < ApplicationController
   def create
     @building = Building.new(params[:building])
     if @building.save
-      redirect_to buildings_path, :notice => "#{@building.name} was successfully added."
+      redirect_to buildings_path, :flash =>  { :success => "#{@building.name} was successfully added." }
     else
       render :new
     end
@@ -28,7 +28,7 @@ class BuildingsController < ApplicationController
         # Delete Building button was clicked.
       destroy # Calls this controllers destroy method to delete the record.
     elsif @building.update_attributes(params[:building])
-      redirect_to buildings_path, :notice => "#{@building.name} was successfully updated."
+      redirect_to buildings_path, :flash => { :success => "#{@building.name} was successfully updated." }
     else
       render :edit
     end

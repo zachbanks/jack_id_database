@@ -63,7 +63,12 @@
 							<li class="nav-header">Create</li>
 							<li><%= link_to "New Jack ID", "#"  %></li>
 							<li><%= link_to "New Room", new_location_path  %></li>
-							<li><%= link_to "New Building", new_building_path  %></li>
+							
+						</ul>
+						<ul class="nav nav-list">
+							<li class="nav-header">Manage</li>
+							<li><%= link_to "Manage Admins", admins_path  %></li>
+							<li><%= link_to "Manage Buildings", buildings_path  %></li>
 						</ul>
 					</div><!--/.well -->
 				</div><!--/span-->

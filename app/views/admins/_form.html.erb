@@ -1,0 +1,20 @@
+<%= simple_form_for @admin, :html => { :class => 'form-horizontal' } do |f| %>
+	<%= f.error_notification %>
+	<%= f.input :name %>
+	<%= f.input :email %>
+
+	<% # TODO: Allow admin to change their own password %>
+	<% if @admin.new_record? %>
+		<%= f.input :password %>
+		<%= f.input :password_confirmation %>
+	<% end %>
+	<%= f.submit submit_button_text(@admin, "Admin"), :class => 'btn' %>
+	
+	<% unless @admin.new_record? %>
+		<!-- Display delete button. -->
+		<%= f.submit "Delete Admin", :name => "delete_admin", 
+																		:method => :delete,
+																		:confirm => "Are you sure you want to delete #{@admin.name} as an Admin?", 
+																		:class => 'btn btn-danger'%>
+	<% end %>
+<% end %>

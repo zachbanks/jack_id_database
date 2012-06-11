@@ -1,5 +1,6 @@
 JackIdDatabase::Application.routes.draw do
-  root :to => "buildings#index"
+
+  root :to => "locations#index"
   
   get 'login', :to => "sessions#new", :as => 'login'
   get 'logout', :to => "sessions#destroy", :as => 'logout'
@@ -12,7 +13,7 @@ JackIdDatabase::Application.routes.draw do
     member { get :display_floor_plan } # Add route for display_floor_plan action in LocationsController.
   end
   resources :jack_ids
-  resources :admin
+  resources :admins
   resources :sessions
   
   # The priority is based upon order of creation:
