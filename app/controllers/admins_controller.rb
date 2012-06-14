@@ -36,8 +36,15 @@ class AdminsController < ApplicationController
 
   def destroy
     @admin = Admin.find(params[:id])
-    msg = "#{@admin.email} was successfully deleted."
-    @admin.destroy
-    redirect_to admins_path :flash => { :success => msg }
+
+    # You can't delete your own account.
+    if @admin == current_admin
+      flash.now[:alert] = "You cannot delete your own account. You must have another Admin delete your account instead."
+      render :edit
+    else
+      msg = "#{@admin.email} was successfully deleted."
+      @admin.destroy
+      redirect_to admins_path :flash => { :success => msg }
+    end
   end
 end

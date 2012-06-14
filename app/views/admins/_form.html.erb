@@ -10,7 +10,7 @@
 	<% end %>
 	<%= f.submit submit_button_text(@admin, "Admin"), :class => 'btn' %>
 	
-	<% unless @admin.new_record? %>
+	<% if @admin != current_admin && !@admin.new_record? %>
 		<!-- Display delete button. -->
 		<%= f.submit "Delete Admin", :name => "delete_admin", 
 																		:method => :delete,
