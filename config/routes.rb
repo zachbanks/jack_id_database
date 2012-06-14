@@ -1,18 +1,18 @@
 JackIdDatabase::Application.routes.draw do
 
-  root :to => "locations#index"
+  root :to => "locations#jack_ids"
   
   get 'login', :to => "sessions#new", :as => 'login'
   get 'logout', :to => "sessions#destroy", :as => 'logout'
   
   # Rename display_floor_plan_location route.
   match '/locations/:id/display_floor_plan(.:format)' => 'locations#display_floor_plan', :as => 'display_floor_plan'
-  
+  match '/jack_ids' => 'locations#jack_ids', :as => 'jack_ids'
+
   resources :buildings
   resources :locations do
     member { get :display_floor_plan } # Add route for display_floor_plan action in LocationsController.
   end
-  resources :jack_ids
   resources :admins
   resources :sessions
   

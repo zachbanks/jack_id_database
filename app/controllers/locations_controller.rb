@@ -72,6 +72,10 @@ class LocationsController < ApplicationController
       render :status => :not_found
     end 
   end
+
+  def jack_ids
+    @locations = Location.page(params[:page]).per(15)
+  end
   
   private
   
