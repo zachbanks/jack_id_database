@@ -1,5 +1,8 @@
-<% @locations.each do |location| %>
-	<%= location %>
-<% end %>
+<h1>Jack IDs</h1>
+<div id="jack_ids">
+  <%= render 'jack_ids' %>
+</div>
 
-<%= paginate @locations %>
+<div id="paginator">
+  <%=  paginate @locations, :remote => true %>
+</div>
