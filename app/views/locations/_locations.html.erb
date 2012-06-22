@@ -11,7 +11,10 @@
     <tr>
       <td><%= location.building.name %></td>
       <td><%= location.room %></td>
-      <td><%= link_to 'Details', location_path(location) %> | <%= link_to 'Edit', edit_location_path(location) %></td>
+      <td>
+        <%= link_to 'Details', location_path(location) %> | <%= link_to 'Edit', edit_location_path(location) %>
+        <%= add_associated_notes_indicator_for(location) %>
+      </td>
     </tr>
     <% end %>
   </tbody>
