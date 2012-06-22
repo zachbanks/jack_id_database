@@ -24,6 +24,9 @@
         <% end %>
       </td>
       <td>
+        <% unless location.notes.blank? %>
+          <span class="has-notes">* </span>
+        <% end %>
         <%= link_to "Details", location_path(location) %> 
         <% if has_floor_plan?(location) %>
           | <%= link_to_floor_plan(location) %>
