@@ -1,1 +1,35 @@
-Hello <%= params[:page] %>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Building Name</th>
+      <th>Room</th>
+      <th>Jack IDs</th>
+      <th>Connections</th>
+			<th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% @locations.each do |location| %>
+    <tr>
+			<td><%= location.building.name %></td>
+			<td><%= location.room %></td>
+      <td>
+        <% location.jack_ids.each do |jack_id| %>
+          <p><%= jack_id.label %></p>
+        <% end %>
+      </td>
+      <td>
+        <% location.jack_ids.each do |jack_id| %>
+          <p><%= jack_id.connections %></p>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Details", location_path(location) %> 
+        <% if has_floor_plan?(location) %>
+          | <%= link_to_floor_plan(location) %>
+        <% end %>
+      </td>
+    </tr>
+	<% end %>
+  </tbody>
+</table>
