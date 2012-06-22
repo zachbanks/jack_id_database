@@ -12,4 +12,4 @@
 <p>Notes: <%= @location.notes %></p>
 <p>Last Modified: <%= relative_date_and_time_format_for @location.last_modified_at %></p>
 <%= link_to_floor_plan(@location) %>
-<%= button_to "Edit", edit_location_path(@location), :method => :get, :class => 'btn' %>
+<%= link_to "Edit", edit_location_path(@location), :method => :get, :class => 'btn' %>
