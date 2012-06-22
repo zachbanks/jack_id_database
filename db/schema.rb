@@ -50,15 +50,4 @@ ActiveRecord::Schema.define(:version => 20120531053953) do
 
   add_index "locations", ["building_id"], :name => "index_locations_on_building_id"
 
-  create_table "rooms", :force => true do |t|
-    t.integer  "building_id"
-    t.string   "room_number"
-    t.text     "notes"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.datetime "last_modified_at"
-  end
-
-  add_index "rooms", ["building_id"], :name => "index_locations_on_building_id"
-
 end
