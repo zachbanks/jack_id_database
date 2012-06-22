@@ -5,6 +5,9 @@ gem 'sqlite3', :group => :development
 gem 'pg', :group => :production
 gem 'jquery-rails'
 
+# A more dynamic web server for use on production server.
+gem 'thin'
+
 # To use ActiveModel has_secure_password.
 gem 'bcrypt-ruby', '~> 3.0.0'
 
