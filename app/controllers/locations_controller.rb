@@ -12,8 +12,9 @@ class LocationsController < ApplicationController
   
   def create
     @location = Location.new(params[:location])
-    
-    if @location.save
+    @location.last_modified_by = { :name => current_admin.name, :email => current_admin.email }
+
+    if @location.save      
       redirect_to locations_path, :flash => { :success => "#@location was successfully added." }
     else
       render :new
@@ -30,6 +31,8 @@ class LocationsController < ApplicationController
   
   def update
     @location = Location.find(params[:id])
+    @location.last_modified_by = { :name => current_admin.name, :email => current_admin.email }
+    
     if params['delete_location']
       # Delete Location button was clicked.
       destroy # Calls this controllers destroy method to delete the record.

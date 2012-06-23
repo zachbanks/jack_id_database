@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :room, :jack_ids, :notes, :building_id, :jack_ids_attributes, :building
+  attr_accessible :room, :jack_ids, :notes, :building_id, :jack_ids_attributes, :building, :last_modified_by
   
   before_save :update_last_modified_at
   
@@ -24,6 +24,18 @@ class Location < ActiveRecord::Base
   # Updates last_modified_at column with current date and time.
   def update_last_modified_at
     self.last_modified_at = DateTime.now
+  end
+
+  def last_modified_by=(values)
+    self.name_of_last_to_modify = values.delete(:name) if values.has_key?(:name)
+    self.email_of_last_to_modify = values.delete(:email) if values.has_key?(:email)
+  end
+
+  def last_modified_by
+    {
+      :name => self.name_of_last_to_modify,
+      :email => self.email_of_last_to_modify
+    }
   end
 end
 

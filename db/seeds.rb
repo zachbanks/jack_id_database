@@ -54,6 +54,14 @@ def generate_random_string(length, character_set)
   (0...length).map{ charset[rand(charset.size)] }.join
 end
 
+# Returns a hash of the name and email of a random admin.
+def generate_last_modified_by
+  names = ["Zach Banks", "Bryan Barry", "David Moore", "Ryan Brown", "Matt Gates"]
+  emails = ["zbanks1@kent.edu", "bbarry1@kent.edu", "dmoore123@kent.edu", "rbrown123@kent.edu", "mgates123@kent.edu"]
+  i = rand(names.size)
+  { :name => names[i], :email => emails[i] }
+end
+
 
 # Create locations with Jack IDs, connections, and notes.
 buildings = Building.all
@@ -67,7 +75,7 @@ buildings.each do |building|
     num.times do |i|
       jack_ids = generate_jack_ids_array(building)
       notes = generate_fake_notes
-      Location.create!(:building => building, :room => "#{base_room}-#{room_letters[i]}", :jack_ids => jack_ids, :notes => notes)
+      Location.create!(:building => building, :room => "#{base_room}-#{room_letters[i]}", :jack_ids => jack_ids, :notes => notes, :last_modified_by => generate_last_modified_by)
     end
   end
 end
