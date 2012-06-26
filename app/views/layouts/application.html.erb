@@ -37,9 +37,11 @@
 						<li><%= link_to "Rooms", locations_path  %></li>
 					</ul>
 					<ul class="nav pull-right">
-						<li><p class="navbar-text"><%= current_admin.email %></p><li>
-						<li class="divider-vertical"></li>
-						<li><%= link_to "Logout", logout_path  if logged_in? %></li>
+						<%  if logged_in? %>
+							<li><p class="navbar-text"><%= current_admin.email %></p><li>
+							<li class="divider-vertical"></li>
+							<li><%= link_to "Logout", logout_path %></li>
+						<% end %>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
