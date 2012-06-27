@@ -46,6 +46,18 @@ class Location < ActiveRecord::Base
       query { string params[:query], :default_operator => 'AND' } if params[:query].present?
     end
   end
+  
+  def to_indexed_json
+    to_json(:methods => [:building_name, :building_short_name])
+  end
+  
+  def building_name
+    building.name
+  end
+  
+  def building_short_name
+    building.short_name
+  end
 end
 
 # == Schema Information
