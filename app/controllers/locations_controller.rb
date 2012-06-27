@@ -50,6 +50,9 @@ class LocationsController < ApplicationController
     redirect_to locations_path, :flash => { :success => msg }
   end
   
+  def jack_ids
+    @locations = Location.search(params)
+  end
   
   # Displays pdf of floor plan for location's building and floor in browser. If floor plan cannot be found, it renders a 404 error.
   # The floor and building are determined using the passed in location instance.
@@ -74,10 +77,6 @@ class LocationsController < ApplicationController
     else
       render :status => :not_found
     end 
-  end
-
-  def jack_ids
-    @locations = Location.page(params[:page]).per(15)
   end
   
   private
