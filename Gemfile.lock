@@ -232,7 +232,7 @@ DEPENDENCIES
   simple_form
   sqlite3
   thin
-  tire
+  tire (~> 0.4.1)
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   yard

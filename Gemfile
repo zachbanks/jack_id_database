@@ -26,7 +26,7 @@ gem 'yard'
 gem 'kaminari'
 
 # Ruby wrapper for ElasticSearch.
-gem 'tire'
+gem 'tire', '~> 0.4.1'
 
 # ===============
 # = Assets Gems =

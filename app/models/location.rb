@@ -1,6 +1,7 @@
 class Location < ActiveRecord::Base
   include Tire::Model::Search
   include Tire::Model::Callbacks
+  index_name BONSAI_INDEX_NAME
   
   attr_accessible :room, :jack_ids, :notes, :building_id, :jack_ids_attributes, :building, :last_modified_by
   
