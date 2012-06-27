@@ -25,6 +25,9 @@ gem 'yard'
 # Documentation: https://github.com/amatsuda/kaminari
 gem 'kaminari'
 
+# Ruby wrapper for ElasticSearch.
+gem 'tire'
+
 # ===============
 # = Assets Gems =
 # ===============
