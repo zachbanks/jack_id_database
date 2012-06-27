@@ -1,14 +1,15 @@
 <h1>Jack IDs</h1>
+
 <div class="symbols-legend">
 	<span class="has-notes">* </span> denotes that room has associated notes.
 </div>
 
-<%= form_tag jack_ids_path, method: :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
+<div id="search">
+	<%= form_tag jack_ids_path, :method => :get, :class => 'form-search' do %>
+	    <%= text_field_tag :query, params[:query], :class => 'search-query' %>
+	    <%= submit_tag "Find", :name => nil, :class => 'btn' %>
+	<% end %>
+</div>
 
 <div id="jack_ids">
   <%= render 'jack_ids' %>
