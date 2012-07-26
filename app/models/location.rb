@@ -42,6 +42,9 @@ class Location < ActiveRecord::Base
     }
   end
   
+  # This right here is the problem method!!!
+  # This is causing new records to not show on redirect.
+  # This is causing Heroku error!
   def self.search(params, options={})
     tire.search(:load => true, :page => params[:page], :per_page => options[:per_page] || 15) do
       query { string params[:query], :default_operator => 'AND' } if params[:query].present?
