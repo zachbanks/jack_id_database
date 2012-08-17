@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'sqlite3', :group => :development
-gem 'pg', :group => :production
+gem 'pg'
 gem 'jquery-rails'
 
 # A more dynamic web server for use on production server.
