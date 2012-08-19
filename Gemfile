@@ -36,11 +36,11 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  
-  # CSS & JQuery bootstrap package. Main source of styling in this project.
-  # Documentation: http://twitter.github.com/bootstrap/
-  gem "twitter-bootstrap-rails"
 end
+
+# CSS & JQuery bootstrap package. Main source of styling in this project.
+# Documentation: http://twitter.github.com/bootstrap/
+gem "twitter-bootstrap-rails"
 
 # ====================
 # = Development Only =
