@@ -24,6 +24,10 @@ gem 'yard'
 # Documentation: https://github.com/amatsuda/kaminari
 gem 'kaminari'
 
+# For full text search using Postgres.
+# Documentation: https://github.com/Casecommons/pg_search
+gem 'pg_search'
+
 # ===============
 # = Assets Gems =
 # ===============

@@ -15,6 +15,10 @@ class Location < ActiveRecord::Base
   
   # If the building is the same, make sure that the room is unique.
   validates :room, :uniqueness => { :scope => :building_id, :message => " already exists" }
+
+  include PgSearch
+
+  pg_search_scope :search, :against => [:room]
   
   # @return [String] Returns a string representation of a Location instance in the format: Bowman - 320-A.
   def to_s
@@ -36,6 +40,14 @@ class Location < ActiveRecord::Base
       :name => self.name_of_last_to_modify,
       :email => self.email_of_last_to_modify
     }
+  end
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
   end
 end
 
