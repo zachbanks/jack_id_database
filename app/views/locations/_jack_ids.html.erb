@@ -14,7 +14,8 @@
 			<td><%= location.building.name %></td>
 			<td><%= location.room %></td>
       <td>
-        <% location.jack_ids.each do |jack_id| %>
+        <% # TODO: Would like to make JackId class sortable. %>
+        <% location.jack_ids.sort_by(&:label).each do |jack_id| %>
           <p><%= jack_id.label %></p>
         <% end %>
       </td>

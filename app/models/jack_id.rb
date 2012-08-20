@@ -9,7 +9,6 @@ class JackId < ActiveRecord::Base
   def to_s
     "Jack ID - #{label}"
   end
-  
 end
 
 # == Schema Information
