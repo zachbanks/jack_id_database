@@ -1,12 +1,14 @@
-<h1>Jack IDs</h1>
+<div class="page-header">
+	<h1>Jack IDs</h1>
+</div>
 
 <div class="symbols-legend">
-	<span class="has-notes">* </span> denotes that room has associated notes.
+	<span class="label label-info">Important</span><span class="has-notes"> * </span> denotes that room has associated notes.
 </div>
 
 <div id="search">
 	<%= form_tag jack_ids_path, :method => :get, :class => 'form-search' do %>
-	    <%= text_field_tag :query, params[:query], :class => 'search-query' %>
+	    <%= text_field_tag :query, params[:query], :class => 'search-query', :placeholder => "Search ..." %>
 	    <%= submit_tag "Find", :name => nil, :class => 'btn' %>
 	<% end %>
 </div>
