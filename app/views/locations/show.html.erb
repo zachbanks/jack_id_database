@@ -1,15 +1,29 @@
 <h1><%= @location %></h1>
 
-<p>Building: <%= @location.building.name %></p>
-<p>Room Number: <%= @location.room %></p>
-<div>
-	<p>Jack IDS</p>
-	<% @location.jack_ids.each do |jack_id| %>
-		<p><%= jack_id.label %></p>
-		<p><%= jack_id.connections %></p>
-	<% end %>
-</div>
-<p>Notes: <%= @location.notes %></p>
-<p>Last Modified: <%= relative_date_and_time_format_for @location.last_modified_at %> by <%= last_modified_by(@location) %></p>
 <%= link_to_floor_plan(@location) %>
+
+<% unless @location.jack_ids.empty? %>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Jack IDs</th>
+			<th>Connections</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<% @location.jack_ids.sort_by(&:label).each do |jack_id| %>
+		<tr>
+			<td><%= jack_id.label %></td>
+			<td><%= jack_id.connections %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>
+
+<div class="well">
+	<p>Notes: <%= @location.notes %></p>
+	<p>Last Modified: <%= relative_date_and_time_format_for @location.last_modified_at %> by <%= last_modified_by(@location) %></p>
+</div>
 <%= link_to "Edit", edit_location_path(@location), :method => :get, :class => 'btn' %>

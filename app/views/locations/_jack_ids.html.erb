@@ -20,7 +20,7 @@
         <% end %>
       </td>
       <td>
-        <% location.jack_ids.each do |jack_id| %>
+        <% location.jack_ids.sort_by(&:label).each do |jack_id| %>
           <p><%= jack_id.connections %></p>
         <% end %>
       </td>
