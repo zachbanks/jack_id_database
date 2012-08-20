@@ -24,7 +24,7 @@ class Location < ActiveRecord::Base
   
   # @return [String] Returns a string representation of a Location instance in the format: Bowman - 320-A.
   def to_s
-    "#{building.name} - #{room}"
+    "#{building.name}: #{room}"
   end
   
   # Updates last_modified_at column with current date and time.
