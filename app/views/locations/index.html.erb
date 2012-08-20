@@ -8,7 +8,7 @@
 
 <div id="search">
 	<%= form_tag locations_path, :method => :get, :class => 'form-search' do %>
-	    <%= text_field_tag :query, params[:query], :class => 'search-query' %>
+	    <%= text_field_tag :query, params[:query], :class => 'search-query', :placeholder => "Search ..." %>
 	    <%= submit_tag "Find", :name => nil, :class => 'btn' %>
 	<% end %>
 </div>
