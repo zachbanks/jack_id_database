@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623000042) do
+ActiveRecord::Schema.define(:version => 20120819235610) do
 
   create_table "admins", :force => true do |t|
     t.string   "password_digest"
@@ -51,5 +51,13 @@ ActiveRecord::Schema.define(:version => 20120623000042) do
   end
 
   add_index "locations", ["building_id"], :name => "index_locations_on_building_id"
+
+  create_table "pg_search_documents", :force => true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
 end

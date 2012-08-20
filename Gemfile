@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'sqlite3', :group => :development
-gem 'pg', :group => :production
+gem 'pg'
 gem 'jquery-rails'
 
 # A more dynamic web server for use on production server.
@@ -25,6 +24,10 @@ gem 'yard'
 # Documentation: https://github.com/amatsuda/kaminari
 gem 'kaminari'
 
+# For full text search using Postgres.
+# Documentation: https://github.com/Casecommons/pg_search
+gem 'pg_search'
+
 # ===============
 # = Assets Gems =
 # ===============
@@ -33,11 +36,11 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  
-  # CSS & JQuery bootstrap package. Main source of styling in this project.
-  # Documentation: http://twitter.github.com/bootstrap/
-  gem "twitter-bootstrap-rails"
 end
+
+# CSS & JQuery bootstrap package. Main source of styling in this project.
+# Documentation: http://twitter.github.com/bootstrap/
+gem "twitter-bootstrap-rails"
 
 # ====================
 # = Development Only =

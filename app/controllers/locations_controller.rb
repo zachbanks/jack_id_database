@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   before_filter :login_required
   
   def index
-    @locations = Location.page(params[:page]).per(15)
+    @locations = Location.text_search(params[:query]).page(params[:page]).per(15)
   end
   
   def new
@@ -51,7 +51,7 @@ class LocationsController < ApplicationController
   end
   
   def jack_ids
-    @locations = Location.page(params[:page]).per(15)
+    @locations = Location.text_search(params[:query]).page(params[:page]).per(15)
   end
   
   # Displays pdf of floor plan for location's building and floor in browser. If floor plan cannot be found, it renders a 404 error.

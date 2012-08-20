@@ -5,8 +5,10 @@ class Location < ActiveRecord::Base
   
   # Sort by building and then sort by room number.
   # :readonly => false option prevents error when updating attributes that use scope.
-  default_scope :joins => :building, :order => 'buildings.name, room', :readonly => false # TODO: Further refine. Needs to sort 123-2 before 123-12
-  
+  # default_scope :joins => :building, :order => 'buildings.name, room', :readonly => false # TODO: Further refine. Needs to sort 123-2 before 123-12
+  default_scope :order => 'room', :readonly => false
+
+
   belongs_to :building
   has_many :jack_ids, :dependent => :destroy
   accepts_nested_attributes_for :jack_ids, :allow_destroy => true
@@ -15,6 +17,10 @@ class Location < ActiveRecord::Base
   
   # If the building is the same, make sure that the room is unique.
   validates :room, :uniqueness => { :scope => :building_id, :message => " already exists" }
+
+  # Use Postgres' full text search for searching with PGSearch gem.
+  include PgSearch
+  pg_search_scope :search, :against => [:room], :associated_against => { :jack_ids => :label, :building => [:name, :short_name] }
   
   # @return [String] Returns a string representation of a Location instance in the format: Bowman - 320-A.
   def to_s
@@ -36,6 +42,14 @@ class Location < ActiveRecord::Base
       :name => self.name_of_last_to_modify,
       :email => self.email_of_last_to_modify
     }
+  end
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
   end
 end
 
